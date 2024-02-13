@@ -8,5 +8,12 @@ namespace Gem_Hunters__Dmeyer3583
 {
     internal class Player
     {
+        string Name;
+        Position Position;
+        int GemCount;
+
+        public void Move(Position p) { 
+        
+        }
     }
 }

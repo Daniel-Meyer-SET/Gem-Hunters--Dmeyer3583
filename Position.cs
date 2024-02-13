@@ -8,5 +8,9 @@ namespace Gem_Hunters__Dmeyer3583
 {
     internal class Position
     {
+        int x;
+        int y;
+        Position(int x, int y) { 
+        }
     }
 }

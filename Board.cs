@@ -8,5 +8,7 @@ namespace Gem_Hunters__Dmeyer3583
 {
     internal class Board
     {
+        Cell[][] grid = new Cell[6][];
+        
     }
 }
