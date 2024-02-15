@@ -9,11 +9,41 @@ namespace Gem_Hunters__Dmeyer3583
     internal class Player
     {
         string Name;
-        Position Position;
-        int GemCount;
+        public Position Position;
+       public  int GemCount;
 
-        public void Move(Position p) { 
-        
+        public void Move(Position p) {
+
+            switch (Console.ReadKey().KeyChar)
+            {
+                case 'u':
+                    
+                    p.y++;
+                     break;
+
+
+                case 'd':
+                    p.y--;
+                    break;
+
+
+                case 'l':
+                    p.x--;
+                     break;
+
+                case 'r':
+                    p.x++;
+                    break;
+
+
+                default:
+                    Console.Clear();
+                    Console.WriteLine("\nInvalid Selection");
+                    break;
+
+
+            }
+
         }
     }
 }

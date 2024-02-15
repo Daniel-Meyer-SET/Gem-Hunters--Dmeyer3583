@@ -9,6 +9,13 @@ namespace Gem_Hunters__Dmeyer3583
     internal class Board
     {
         Cell[][] grid = new Cell[6][];
-        
+
+
+        public void CollectGem(Player P) {
+
+            if (grid[P.Position.x][P.Position.y].occupant == "g") { 
+            P.GemCount++;
+            }
+        }
     }
 }
