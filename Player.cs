@@ -8,7 +8,7 @@ namespace Gem_Hunters__Dmeyer3583
 {
     internal class Player
     {
-        string Name;
+      public  string Name;
         public Position Position;
        public  int GemCount;
 

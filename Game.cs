@@ -6,21 +6,38 @@ using System.Threading.Tasks;
 
 namespace Gem_Hunters__Dmeyer3583
 {
-    internal class Game 
+    internal class Game
     {
         Board board;
         Player player1;
         Player player2;
         Player currentTurn;
-        int TotalTurns; 
+        int TotalTurns;
+
+        public Game(){
+            player1.Name = "Player1";
+            player1.Position.x = 0;
+            player1.Position.y = 5;
+
+            player2.Name = "Player2";
+            player2.Position.x = 5;
+            player2.Position.y = 0; 
+        }
 
         public void Start() {
             currentTurn = player1;
             
         }
 
-        public void switchTurn() { 
-        
+        public void switchTurn() {
+            if (currentTurn == player1) {
+                currentTurn = player2;
+            }
+            else if (currentTurn == player2)
+            {
+                currentTurn = player1;
+            }
+            
         }
 
         public void IsGameOver() { 
