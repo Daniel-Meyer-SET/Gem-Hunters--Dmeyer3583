@@ -10,6 +10,19 @@ namespace Gem_Hunters__Dmeyer3583
     {
       public  string Name;
         public Position Position;
+        public Player(string name) {
+
+            this.Name = name;
+            if (name == "p1") {
+                this.Position = new Position(0,5);
+            }
+            else
+            {
+                this.Position = new Position(5, 0);
+            }
+           
+        }
+
        public  int GemCount;
 
         public void Move(Position p) {
