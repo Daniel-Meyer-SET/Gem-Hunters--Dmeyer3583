@@ -9,15 +9,16 @@ namespace Gem_Hunters__Dmeyer3583
     internal class Game
     {
         Board board;
-        Player player1 = new Player("p1");
-        
-        
-        Player player2 = new Player("p2");
+        Player player1;
+
+
+        Player player2;
         Player currentTurn;
         int TotalTurns;
 
         public Game(){
-           
+            player1 = new Player("p1");
+            player2 = new Player("p2");
         }
 
         public void Start() {
