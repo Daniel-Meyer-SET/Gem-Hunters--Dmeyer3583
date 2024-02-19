@@ -19,6 +19,7 @@ namespace Gem_Hunters__Dmeyer3583
         public Game(){
             player1 = new Player("p1");
             player2 = new Player("p2");
+            board = new Board();
         }
 
         public void Start() {

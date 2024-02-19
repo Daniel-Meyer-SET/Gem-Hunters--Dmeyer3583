@@ -8,6 +8,7 @@ namespace Gem_Hunters__Dmeyer3583
 {
     internal class Cell
     {
-        public string occupant;
+        public string occupant ="";
+        
     }
 }
