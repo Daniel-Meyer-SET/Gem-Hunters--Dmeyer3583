@@ -47,17 +47,17 @@ namespace Gem_Hunters__Dmeyer3583
                     
                 }
             }
-            grid[0, 5].occupant = "p1";
-            grid[5, 0].occupant = "p2";
+            grid[0, 0].occupant = "p1";
+            grid[5, 5].occupant = "p2";
         }
 
         public void Display()
         {
-            for (int i = 1; i < 6; i++)
+            for (int i = 0; i < 6; i++)
             {
-                for (int j = 0; j < 5; j++)
+                for (int j = 0; j < 6; j++)
                 {
-                    Console.Write($"{ grid[i,j].occupant} ");
+                    Console.Write($" { grid[i,j].occupant} ");
                 }
                 Console.WriteLine();
             }

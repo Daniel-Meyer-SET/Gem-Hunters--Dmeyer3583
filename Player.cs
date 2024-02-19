@@ -14,11 +14,11 @@ namespace Gem_Hunters__Dmeyer3583
 
             this.Name = name;
             if (name == "p1") {
-                this.Position = new Position(0,5);
+                this.Position = new Position(0,0);
             }
             else
             {
-                this.Position = new Position(5, 0);
+                this.Position = new Position(5, 5);
             }
            
         }
