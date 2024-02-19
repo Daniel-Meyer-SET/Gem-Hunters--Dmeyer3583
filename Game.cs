@@ -24,6 +24,7 @@ namespace Gem_Hunters__Dmeyer3583
 
         public void Start() {
             currentTurn = player1;
+            board.Display();
             
         }
 

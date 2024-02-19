@@ -18,15 +18,15 @@ namespace Gem_Hunters__Dmeyer3583
                 for (int j = 0; j < 6; j++)
                 {
                     grid[i,j] = new Cell();
+                    
                 }
             }
                     string occType;
             int randomNum=0;
-            grid[0,5].occupant = "p1";
-            grid[5,0].occupant = "p2";
+           
             Random rnd = new Random();
-            for (int i = 1; i < 6; i++) {
-                for (int j = 0; j < 5; j++)
+            for (int i = 0; i < 6; i++) {
+                for (int j = 0; j < 6; j++)
                 {
 
                     randomNum = rnd.Next(1, 3);
@@ -46,9 +46,22 @@ namespace Gem_Hunters__Dmeyer3583
 
                     
                 }
-            }        
+            }
+            grid[0, 5].occupant = "p1";
+            grid[5, 0].occupant = "p2";
         }
 
+        public void Display()
+        {
+            for (int i = 1; i < 6; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    Console.Write($"{ grid[i,j].occupant} ");
+                }
+                Console.WriteLine();
+            }
+        }
         public void CollectGem(Player P) {
 
             if (grid[P.Position.x,P.Position.y].occupant == "g") { 
