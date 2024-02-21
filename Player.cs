@@ -25,9 +25,9 @@ namespace Gem_Hunters__Dmeyer3583
 
        public  int GemCount;
 
-        public void Move(Position p) {
+        public void Move(Position p,char direction) {
 
-            switch (Console.ReadKey().KeyChar)
+            switch (direction)
             {
                 case 'u':
                     

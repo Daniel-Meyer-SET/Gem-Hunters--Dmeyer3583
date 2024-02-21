@@ -62,6 +62,51 @@ namespace Gem_Hunters__Dmeyer3583
                 Console.WriteLine();
             }
         }
+        public void IsValidMove(char direction, Player player) {
+            Position p = player.Position;
+
+            switch (direction)
+            {
+                case 'u':
+
+                    if (p.y++ < 6  || this.grid[p.x,p.y++].occupant !="O" ) { 
+                    
+                    }
+                    break;
+
+
+                case 'd':
+
+                    if (p.y-- > 0 || this.grid[p.x, p.y--].occupant != "O")
+                    {
+
+                    }
+                    break;
+
+
+                case 'l':
+
+                    if (p.x-- > 0 || this.grid[p.x--, p.y].occupant != "O")
+                    {
+
+                    }
+                    break;
+
+                case 'r':
+
+                    if (p.x++ < 6 || this.grid[p.x++, p.y].occupant != "O")
+                    {
+
+                    }
+                    break;
+
+
+                default:
+                    Console.Clear();
+                    Console.WriteLine("\nInvalid Selection");
+                    break;
+
+            }
         public void CollectGem(Player P) {
 
             if (grid[P.Position.x,P.Position.y].occupant == "g") { 

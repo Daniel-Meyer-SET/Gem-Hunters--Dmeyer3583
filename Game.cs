@@ -25,8 +25,30 @@ namespace Gem_Hunters__Dmeyer3583
         public void Start() {
             currentTurn = player1;
             while (IsGameOver() == false) {
+                char selection = Console.ReadKey().KeyChar;
+               switch (selection)
+                {
+                    case 'u':  case 'd': case 'l': case 'r':
+
+                        currentTurn.Move(currentTurn.Position,selection);
+                        break;
+
+
+                    case 'g':
+                        board.CollectGem(currentTurn);
+                        break;
+
+
+                    default:
+                        Console.Clear();
+                        Console.WriteLine("\nInvalid Selection");
+                        break;
+
+                }
+
+
                 switchTurn();
-                
+                    
             
             }
            
