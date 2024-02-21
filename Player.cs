@@ -25,27 +25,27 @@ namespace Gem_Hunters__Dmeyer3583
 
        public  int GemCount;
 
-        public void Move(Position p,char direction) {
+        public void Move(char direction) {
 
             switch (direction)
             {
                 case 'u':
                     
-                    p.y++;
+                   this.Position.y++;
                      break;
 
 
                 case 'd':
-                    p.y--;
+                    this.Position.y--;
                     break;
 
 
                 case 'l':
-                    p.x--;
+                    this.Position.x--;
                      break;
 
                 case 'r':
-                    p.x++;
+                    this.Position.x++;
                     break;
 
 
