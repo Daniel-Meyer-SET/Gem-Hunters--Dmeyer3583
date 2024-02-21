@@ -24,8 +24,17 @@ namespace Gem_Hunters__Dmeyer3583
 
         public void Start() {
             currentTurn = player1;
-            board.Display();
+            while (IsGameOver() == false) {
+                switchTurn();
+                
             
+            }
+           
+            board.Display();
+
+            if (IsGameOver() == true) {
+                AnnounceWinner(player1, player2);
+            }
         }
 
         public void switchTurn() {
@@ -39,8 +48,15 @@ namespace Gem_Hunters__Dmeyer3583
             
         }
 
-        public void IsGameOver() { 
-                }
+        public bool IsGameOver() {
+            bool gameOver = false;
+            TotalTurns--;
+            if (TotalTurns == 0) {
+                
+                gameOver = true;
+            }
+            return gameOver;
+        }
         public void AnnounceWinner(Player p1, Player p2) {
 
             if (p1.GemCount > p2.GemCount)
