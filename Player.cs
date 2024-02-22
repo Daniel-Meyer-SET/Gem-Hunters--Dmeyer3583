@@ -32,6 +32,8 @@ namespace Gem_Hunters__Dmeyer3583
                 case 'u':
                     
                    this.Position.y++;
+                   
+                    
                      break;
 
 

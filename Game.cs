@@ -23,6 +23,7 @@ namespace Gem_Hunters__Dmeyer3583
         }
 
         public void Start() {
+            Console.WriteLine("Player 1");
             currentTurn = player1;
             while (IsGameOver() == false) {
                 char selection = Console.ReadKey().KeyChar;
@@ -30,7 +31,8 @@ namespace Gem_Hunters__Dmeyer3583
                 {
                     case 'u':  case 'd': case 'l': case 'r':
 
-                        currentTurn.Move(currentTurn.Position,selection);
+                        board.IsValidMove(selection, currentTurn);
+
                         break;
 
 
@@ -46,13 +48,13 @@ namespace Gem_Hunters__Dmeyer3583
 
                 }
 
-
+                board.Display();
                 switchTurn();
                     
             
             }
            
-            board.Display();
+            
 
             if (IsGameOver() == true) {
                 AnnounceWinner(player1, player2);

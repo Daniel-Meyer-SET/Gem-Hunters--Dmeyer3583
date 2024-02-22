@@ -31,7 +31,7 @@ namespace Gem_Hunters__Dmeyer3583
                 for (int j = 0; j < 6; j++)
                 {
 
-                    randomNum = rnd.Next(1, 3);
+                    randomNum = rnd.Next(1, 4);
                     if (randomNum == 1)
                     {
                         occType = "G";
@@ -70,40 +70,44 @@ namespace Gem_Hunters__Dmeyer3583
         public void IsValidMove(char direction, Player player)
         {
             Position p = player.Position;
-
+            int newPos=0;
             switch (direction)
             {
                 case 'u':
-
-                    if (p.y++ < 6 || this.grid[p.x, p.y++].occupant != "O")
+                    newPos = p.y+1;
+                    if (newPos <=5 && this.grid[p.x, newPos].occupant != "O")
                     {
                         player.Move('u');
+                        grid[p.x, p.y].occupant = player.Name;
                     }
                     break;
 
 
                 case 'd':
-
-                    if (p.y-- > 0 || this.grid[p.x, p.y--].occupant != "O")
+                    newPos = p.y-1;
+                    if (newPos >=0 && this.grid[p.x, newPos].occupant != "O")
                     {
                         player.Move('d');
+                        grid[p.x, p.y].occupant = player.Name;
                     }
                     break;
 
 
                 case 'l':
-
-                    if (p.x-- > 0 || this.grid[p.x--, p.y].occupant != "O")
+                    newPos = p.x-1;
+                    if (newPos >=0 && this.grid[newPos, p.y].occupant != "O")
                     {
                         player.Move('l');
+                        grid[p.x, p.y].occupant = player.Name;
                     }
                     break;
 
                 case 'r':
-
-                    if (p.x++ < 6 || this.grid[p.x++, p.y].occupant != "O")
+                    newPos = p.x+1;
+                    if (newPos <5 && this.grid[newPos, p.y].occupant != "O")
                     {
                         player.Move('r');
+                        grid[p.x, p.y].occupant = player.Name;
                     }
                     break;
 
