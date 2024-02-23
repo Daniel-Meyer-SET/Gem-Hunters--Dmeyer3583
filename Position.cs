@@ -10,9 +10,9 @@ namespace Gem_Hunters__Dmeyer3583
     {
         public int x;
         public int y;
-      public  Position(int x, int y) { 
-            this.x = x; 
-            this.y = y;
+      public  Position(int y, int x) { 
+            this.y = y; 
+            this.x = x;
             
         }
     }

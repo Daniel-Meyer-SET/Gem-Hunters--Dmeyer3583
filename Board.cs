@@ -62,7 +62,7 @@ namespace Gem_Hunters__Dmeyer3583
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    Console.Write($" {grid[i, j].occupant} ");
+                    Console.Write($" {grid[j,i].occupant} ");
                 }
                 Console.WriteLine();
             }
@@ -77,8 +77,10 @@ namespace Gem_Hunters__Dmeyer3583
                     newPos = p.y+1;
                     if (newPos <=5 && this.grid[p.x, newPos].occupant != "O")
                     {
+                        grid[p.x, p.y].occupant = "-";
                         player.Move('u');
                         grid[p.x, p.y].occupant = player.Name;
+
                     }
                     break;
 
@@ -87,6 +89,7 @@ namespace Gem_Hunters__Dmeyer3583
                     newPos = p.y-1;
                     if (newPos >=0 && this.grid[p.x, newPos].occupant != "O")
                     {
+                        grid[p.x, p.y].occupant = "-";
                         player.Move('d');
                         grid[p.x, p.y].occupant = player.Name;
                     }
@@ -97,6 +100,7 @@ namespace Gem_Hunters__Dmeyer3583
                     newPos = p.x-1;
                     if (newPos >=0 && this.grid[newPos, p.y].occupant != "O")
                     {
+                        grid[p.x, p.y].occupant = "-";
                         player.Move('l');
                         grid[p.x, p.y].occupant = player.Name;
                     }
@@ -106,8 +110,9 @@ namespace Gem_Hunters__Dmeyer3583
                     newPos = p.x+1;
                     if (newPos <5 && this.grid[newPos, p.y].occupant != "O")
                     {
+                         grid[p.x, p.y].occupant = "-";
                         player.Move('r');
-                        grid[p.x, p.y].occupant = player.Name;
+                        grid[p.y, p.x].occupant = player.Name;
                     }
                     break;
 
