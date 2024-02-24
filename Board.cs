@@ -76,7 +76,7 @@ namespace Gem_Hunters__Dmeyer3583
             {
                 case 'd':
                     newPos = p.y+1;
-                    if (newPos <=5 && this.grid[p.x, newPos].occupant != "O")
+                    if (newPos <=5 && (this.grid[p.x, newPos].occupant == "-" || this.grid[p.x, newPos].occupant == "G"))
                     {
                         grid[p.x, p.y].occupant = "-";
                         player.Move('d');
@@ -93,7 +93,7 @@ namespace Gem_Hunters__Dmeyer3583
 
                 case 'u':
                     newPos = p.y-1;
-                    if (newPos >=0 && this.grid[p.x, newPos].occupant != "O")
+                    if (newPos >=0 && (this.grid[p.x, newPos].occupant == "-"|| this.grid[p.x, newPos].occupant == "G"))
                     {
                         grid[p.x, p.y].occupant = "-";
                         player.Move('u');
@@ -109,7 +109,7 @@ namespace Gem_Hunters__Dmeyer3583
 
                 case 'l':
                     newPos = p.x-1;
-                    if (newPos >=0 && this.grid[newPos, p.y].occupant != "O")
+                    if (newPos >=0 && (this.grid[newPos, p.y].occupant == "-" || this.grid[newPos, p.y].occupant == "G"))
                     {
                         grid[p.x, p.y].occupant = "-";
                         player.Move('l');
@@ -124,7 +124,7 @@ namespace Gem_Hunters__Dmeyer3583
 
                 case 'r':
                     newPos = p.x+1;
-                    if (newPos <5 && this.grid[newPos, p.y].occupant != "O")
+                    if (newPos <5 && (this.grid[newPos, p.y].occupant == "-"|| this.grid[newPos, p.y].occupant == "G" ))
                     {
                          grid[p.x, p.y].occupant = "-";
                         player.Move('r');

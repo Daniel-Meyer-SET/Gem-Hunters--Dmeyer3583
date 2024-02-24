@@ -16,13 +16,14 @@ namespace Gem_Hunters__Dmeyer3583
         Player currentTurn;
         int TotalTurns;
 
-        public Game(){
+        
+        
+
+        public void Start() {
+
             player1 = new Player("p1");
             player2 = new Player("p2");
             board = new Board();
-        }
-
-        public void Start() {
             Console.WriteLine("Player 1");
             currentTurn = player1;
             while (IsGameOver() == false) {
