@@ -128,7 +128,7 @@ namespace Gem_Hunters__Dmeyer3583
                     {
                          grid[p.x, p.y].occupant = "-";
                         player.Move('r');
-                        grid[p.y, p.x].occupant = player.Name;
+                        grid[p.x, p.y].occupant = player.Name;
                         if (this.grid[newPos, p.y].occupant != "G")
                         {
                             CollectGem(player);
