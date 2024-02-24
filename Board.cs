@@ -58,6 +58,7 @@ namespace Gem_Hunters__Dmeyer3583
 
         public void Display()
         {
+            Console.Clear();
             for (int i = 0; i < 6; i++)
             {
                 for (int j = 0; j < 6; j++)
@@ -73,26 +74,36 @@ namespace Gem_Hunters__Dmeyer3583
             int newPos=0;
             switch (direction)
             {
-                case 'u':
+                case 'd':
                     newPos = p.y+1;
                     if (newPos <=5 && this.grid[p.x, newPos].occupant != "O")
                     {
                         grid[p.x, p.y].occupant = "-";
-                        player.Move('u');
+                        player.Move('d');
                         grid[p.x, p.y].occupant = player.Name;
+
+                        if (this.grid[p.x, newPos].occupant != "G")
+                        {
+                            CollectGem(player);
+                        }
 
                     }
                     break;
 
 
-                case 'd':
+                case 'u':
                     newPos = p.y-1;
                     if (newPos >=0 && this.grid[p.x, newPos].occupant != "O")
                     {
                         grid[p.x, p.y].occupant = "-";
-                        player.Move('d');
+                        player.Move('u');
                         grid[p.x, p.y].occupant = player.Name;
+                        if (this.grid[p.x, newPos].occupant != "G")
+                        {
+                            CollectGem(player);
+                        }
                     }
+                  
                     break;
 
 
@@ -103,7 +114,12 @@ namespace Gem_Hunters__Dmeyer3583
                         grid[p.x, p.y].occupant = "-";
                         player.Move('l');
                         grid[p.x, p.y].occupant = player.Name;
+                        if (this.grid[newPos, p.y].occupant != "G")
+                        {
+                            CollectGem(player);
+                        }
                     }
+                   
                     break;
 
                 case 'r':
@@ -113,7 +129,12 @@ namespace Gem_Hunters__Dmeyer3583
                          grid[p.x, p.y].occupant = "-";
                         player.Move('r');
                         grid[p.y, p.x].occupant = player.Name;
+                        if (this.grid[newPos, p.y].occupant != "G")
+                        {
+                            CollectGem(player);
+                        }
                     }
+                   
                     break;
 
 
