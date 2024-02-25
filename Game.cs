@@ -17,22 +17,38 @@ namespace Gem_Hunters__Dmeyer3583
         private int totalTurns;
        public int TotalTurns { get { return totalTurns; } set { totalTurns = value; } }
 
+        public Game() {
+            
+            player1 = new Player();
+            player2 = new Player();
+            player1.Name = "p1";
+            this.player2.Name = "p2";
+
+            player1.Position.x = 0;
+            player1.Position.y = 0;
+            
+            player2.Position.x = 5;
+            player2.Position.y = 5;
+
+            currentTurn = player1;
+
+            board = new Board();
+            totalTurns = 30;
+        }
 
 
 
         public void Start() {
 
-            player1 = new Player("p1");
-            player2 = new Player("p2");
-            board = new Board();
-            Console.WriteLine("Player 1");
-            board.Display();
-            currentTurn = player1;
-            TotalTurns = 30;
+            
 
+            board.Display();
+            
+            
+            
             do
             {
-
+                
                 char selection = Console.ReadKey().KeyChar;
                 if (selection == 'u' || selection == 'd' || selection == 'l' || selection == 'r')
                 {
@@ -44,14 +60,15 @@ namespace Gem_Hunters__Dmeyer3583
                     Console.Clear();
                     Console.WriteLine("\nInvalid Selection");
                 }
-
+                switchTurn();
+                Console.WriteLine(currentTurn.Name);
                 Console.WriteLine(" Game Turns Remaining:" + TotalTurns);
                 Console.WriteLine(player1.Name + " Gem count:" + player1.GemCount);
                 Console.WriteLine(player2.Name + " Gem count:" + player2.GemCount);
                 board.Display();
 
 
-                switchTurn();
+               
 
 
             } while (IsGameOver() == false);
