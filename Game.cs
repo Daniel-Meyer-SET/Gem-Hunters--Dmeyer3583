@@ -43,10 +43,10 @@ namespace Gem_Hunters__Dmeyer3583
             
 
             board.Display();
-            
-            
-            
-            do
+            Console.WriteLine(" Game Turns Remaining:" + TotalTurns);
+
+
+            while (IsGameOver() == false)
             {
                 
                 char selection = Console.ReadKey().KeyChar;
@@ -71,7 +71,7 @@ namespace Gem_Hunters__Dmeyer3583
                
 
 
-            } while (IsGameOver() == false);
+            } 
             AnnounceWinner(player1, player2);
 
 
