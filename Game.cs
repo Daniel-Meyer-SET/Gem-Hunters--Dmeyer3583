@@ -14,10 +14,11 @@ namespace Gem_Hunters__Dmeyer3583
 
         Player player2;
         Player currentTurn;
-        int TotalTurns;
+        private int totalTurns;
+       public int TotalTurns { get { return totalTurns; } set { totalTurns = value; } }
 
-        
-        
+
+
 
         public void Start() {
 
@@ -28,32 +29,39 @@ namespace Gem_Hunters__Dmeyer3583
             board.Display();
             currentTurn = player1;
             TotalTurns = 30;
-            while (IsGameOver() == false) {
-                
+
+            do
+            {
+
                 char selection = Console.ReadKey().KeyChar;
                 if (selection == 'u' || selection == 'd' || selection == 'l' || selection == 'r')
                 {
                     board.IsValidMove(selection, currentTurn);
+                    Console.Clear();
                 }
-                else {
+                else
+                {
                     Console.Clear();
                     Console.WriteLine("\nInvalid Selection");
                 }
 
-
-                Console.WriteLine(currentTurn.Name +"Gem count:"+ currentTurn.GemCount);
+                Console.WriteLine(" Game Turns Remaining:" + TotalTurns);
+                Console.WriteLine(player1.Name + " Gem count:" + player1.GemCount);
+                Console.WriteLine(player2.Name + " Gem count:" + player2.GemCount);
                 board.Display();
+
+
                 switchTurn();
-                IsGameOver();
-                
 
-            }
-           
-            
 
-            if (IsGameOver() == true) {
-                AnnounceWinner(player1, player2);
-            }
+            } while (IsGameOver() == false);
+            AnnounceWinner(player1, player2);
+
+
+
+
+
+
         }
 
         public void switchTurn() {
@@ -69,11 +77,12 @@ namespace Gem_Hunters__Dmeyer3583
 
         public bool IsGameOver() {
             bool gameOver = false;
-            TotalTurns--;
+            
             if (TotalTurns == 0) {
                 
                 gameOver = true;
             }
+            TotalTurns--;
             return gameOver;
         }
         public void AnnounceWinner(Player p1, Player p2) {
