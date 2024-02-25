@@ -8,7 +8,9 @@ namespace Gem_Hunters__Dmeyer3583
 {
     internal class Cell
     {
-        public string occupant ="";
+        // set occupant to empty space by default
+        string occupant="-";
+        public string Occupant { get { return occupant; } set { occupant = value; } }
         
     }
 }

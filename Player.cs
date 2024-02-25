@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 namespace Gem_Hunters__Dmeyer3583
 {
     internal class Player
-    {
+    {   
         string name=" ";
         int gemCount;
-      public string Name
+    
+        public string Name
         {
             get { return name ; }
             set { name = value; } 
@@ -23,30 +24,30 @@ namespace Gem_Hunters__Dmeyer3583
         
 
        
-
+        // switch case to move player
         public void Move(char direction) {
 
             switch (direction)
             {
                 case 'u':
                     
-                   this.Position.y--;
+                   this.Position.Y--;
                    
                     
                      break;
 
 
                 case 'd':
-                    this.Position.y++;
+                    this.Position.Y++;
                     break;
 
 
                 case 'l':
-                    this.Position.x--;
+                    this.Position.X--;
                      break;
 
                 case 'r':
-                    this.Position.x++;
+                    this.Position.X++;
                     break;
 
 

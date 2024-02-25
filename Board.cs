@@ -24,7 +24,7 @@ namespace Gem_Hunters__Dmeyer3583
             }
             string occType;
             int randomNum = 0;
-
+            // generate board occupants with random numbers
             Random rnd = new Random();
             for (int i = 0; i < 6; i++)
             {
@@ -35,25 +35,26 @@ namespace Gem_Hunters__Dmeyer3583
                     if (randomNum == 1)
                     {
                         occType = "G";
-                        grid[i, j].occupant = occType;
+                        grid[i, j].Occupant = occType;
                     }
                     else if (randomNum == 2)
                     {
                         occType = "O";
-                        grid[i, j].occupant = occType;
+                        grid[i, j].Occupant = occType;
                     }
                     else if (randomNum == 3)
                     {
                         occType = "-";
-                        grid[i, j].occupant = occType;
+                        grid[i, j].Occupant = occType;
                     }
 
 
 
                 }
             }
-            grid[0, 0].occupant = "p1";
-            grid[5, 5].occupant = "p2";
+            // set player positions 
+            grid[0, 0].Occupant = "p1";
+            grid[5, 5].Occupant = "p2";
         }
 
         public void Display()
@@ -63,82 +64,84 @@ namespace Gem_Hunters__Dmeyer3583
             for (int i = 0; i < 6; i++)
             {
                 for (int j = 0; j < 6; j++)
-                {
-                    Console.Write($" {grid[j,i].occupant} ");
+                {  // display in a grid format
+                    Console.Write($" {grid[j,i].Occupant} ");
                 }
                 Console.WriteLine();
             }
         }
         public void IsValidMove(char direction, Player player)
         {
-            Position p = player.Position;
+            Position pos = player.Position;
             int newPos=0;
+            // check adjacent cells for obstacles or other players
             switch (direction)
             {
                 case 'd':
-                    newPos = p.y+1;
-                    if (newPos <=5 && (this.grid[p.x, newPos].occupant == "-" || this.grid[p.x, newPos].occupant == "G"))
+                    newPos = pos.Y+1;
+                    
+                    if (newPos <=5 && (this.grid[pos.X, newPos].Occupant == "-" || this.grid[pos.X, newPos].Occupant == "G"))
                     {
-                        grid[p.x, p.y].occupant = "-";
+                        grid[pos.X, pos.Y].Occupant = "-";
                         
 
-                        if (this.grid[p.x, newPos].occupant == "G")
+                        if (this.grid[pos.X, newPos].Occupant == "G")
                         {
                             CollectGem(player);
                         }
                         player.Move('d');
-                        grid[p.x, p.y].occupant = player.Name;
+                        grid[pos.X, pos.Y].Occupant = player.Name;
 
                     }
                     break;
 
 
                 case 'u':
-                    newPos = p.y-1;
-                    if (newPos >=0 && (this.grid[p.x, newPos].occupant == "-"|| this.grid[p.x, newPos].occupant == "G"))
+                    newPos = pos.Y-1;
+                    if (newPos >=0 && (this.grid[pos.X, newPos].Occupant == "-"|| this.grid[pos.X, newPos].Occupant == "G"))
                     {
-                        grid[p.x, p.y].occupant = "-";
+                        grid[pos.X, pos.Y].Occupant = "-";
                        
-                        if (this.grid[p.x, newPos].occupant == "G")
+                        if (this.grid[pos.X, newPos].Occupant == "G")
                         {
                             CollectGem(player);
                         }
                         player.Move('u');
-                        grid[p.x, p.y].occupant = player.Name;
+                        grid[pos.X, pos.Y].Occupant = player.Name;
                     }
                   
                     break;
 
 
                 case 'l':
-                    newPos = p.x-1;
-                    if (newPos >=0 && (this.grid[newPos, p.y].occupant == "-" || this.grid[newPos, p.y].occupant == "G"))
+                    newPos = pos.X-1;
+                    if (newPos >=0 && (this.grid[newPos, pos.Y].Occupant == "-" || this.grid[newPos, pos.Y].Occupant == "G"))
                     {
-                        grid[p.x, p.y].occupant = "-";
+                        grid[pos.X, pos.Y].Occupant = "-";
                        
-                        if (this.grid[newPos, p.y].occupant == "G")
+                        if (this.grid[newPos, pos.Y].Occupant == "G")
                         {
                             CollectGem(player);
                         }
                         player.Move('l');
-                        grid[p.x, p.y].occupant = player.Name;
+                        grid[pos.X, pos.Y].Occupant = player.Name;
                     }
                    
                     break;
 
                 case 'r':
-                    newPos = p.x+1;
-                    if (newPos <5 && (this.grid[newPos, p.y].occupant == "-"|| this.grid[newPos, p.y].occupant == "G" ))
+                    newPos = pos.X+1;
+                    if (newPos <=5 && (this.grid[newPos, pos.Y].Occupant == "-"|| this.grid[newPos, pos.Y].Occupant == "G" ))
                     {
-                         grid[p.x, p.y].occupant = "-";
+                         grid[pos.X, pos.Y].Occupant = "-";
                        
                         
-                        if (this.grid[newPos, p.y].occupant == "G")
+                        if (this.grid[newPos, pos.Y].Occupant == "G")
                         {
                             CollectGem(player);
                         }
                          player.Move('r');
-                        grid[p.x, p.y].occupant = player.Name;
+                        grid[pos.X, pos.Y].Occupant = player.Name;
                     }
                    
                     break;
@@ -152,6 +155,7 @@ namespace Gem_Hunters__Dmeyer3583
             }
 
         }
+        // increase gem count
         public void CollectGem(Player P)
         {
 

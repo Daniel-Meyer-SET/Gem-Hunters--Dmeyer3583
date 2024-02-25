@@ -24,11 +24,11 @@ namespace Gem_Hunters__Dmeyer3583
             player1.Name = "p1";
             this.player2.Name = "p2";
 
-            player1.Position.x = 0;
-            player1.Position.y = 0;
+            player1.Position.X = 0;
+            player1.Position.Y = 0;
             
-            player2.Position.x = 5;
-            player2.Position.y = 5;
+            player2.Position.X = 5;
+            player2.Position.Y = 5;
 
             currentTurn = player1;
 
