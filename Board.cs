@@ -58,7 +58,8 @@ namespace Gem_Hunters__Dmeyer3583
 
         public void Display()
         {
-            Console.Clear();
+            
+           
             for (int i = 0; i < 6; i++)
             {
                 for (int j = 0; j < 6; j++)
@@ -79,13 +80,14 @@ namespace Gem_Hunters__Dmeyer3583
                     if (newPos <=5 && (this.grid[p.x, newPos].occupant == "-" || this.grid[p.x, newPos].occupant == "G"))
                     {
                         grid[p.x, p.y].occupant = "-";
-                        player.Move('d');
-                        grid[p.x, p.y].occupant = player.Name;
+                        
 
-                        if (this.grid[p.x, newPos].occupant != "G")
+                        if (this.grid[p.x, newPos].occupant == "G")
                         {
                             CollectGem(player);
                         }
+                        player.Move('d');
+                        grid[p.x, p.y].occupant = player.Name;
 
                     }
                     break;
@@ -96,12 +98,13 @@ namespace Gem_Hunters__Dmeyer3583
                     if (newPos >=0 && (this.grid[p.x, newPos].occupant == "-"|| this.grid[p.x, newPos].occupant == "G"))
                     {
                         grid[p.x, p.y].occupant = "-";
-                        player.Move('u');
-                        grid[p.x, p.y].occupant = player.Name;
-                        if (this.grid[p.x, newPos].occupant != "G")
+                       
+                        if (this.grid[p.x, newPos].occupant == "G")
                         {
                             CollectGem(player);
                         }
+                        player.Move('u');
+                        grid[p.x, p.y].occupant = player.Name;
                     }
                   
                     break;
@@ -112,12 +115,13 @@ namespace Gem_Hunters__Dmeyer3583
                     if (newPos >=0 && (this.grid[newPos, p.y].occupant == "-" || this.grid[newPos, p.y].occupant == "G"))
                     {
                         grid[p.x, p.y].occupant = "-";
-                        player.Move('l');
-                        grid[p.x, p.y].occupant = player.Name;
-                        if (this.grid[newPos, p.y].occupant != "G")
+                       
+                        if (this.grid[newPos, p.y].occupant == "G")
                         {
                             CollectGem(player);
                         }
+                        player.Move('l');
+                        grid[p.x, p.y].occupant = player.Name;
                     }
                    
                     break;
@@ -127,12 +131,14 @@ namespace Gem_Hunters__Dmeyer3583
                     if (newPos <5 && (this.grid[newPos, p.y].occupant == "-"|| this.grid[newPos, p.y].occupant == "G" ))
                     {
                          grid[p.x, p.y].occupant = "-";
-                        player.Move('r');
-                        grid[p.x, p.y].occupant = player.Name;
-                        if (this.grid[newPos, p.y].occupant != "G")
+                       
+                        
+                        if (this.grid[newPos, p.y].occupant == "G")
                         {
                             CollectGem(player);
                         }
+                         player.Move('r');
+                        grid[p.x, p.y].occupant = player.Name;
                     }
                    
                     break;
@@ -149,10 +155,9 @@ namespace Gem_Hunters__Dmeyer3583
         public void CollectGem(Player P)
         {
 
-            if (grid[P.Position.x, P.Position.y].occupant == "g")
-            {
+
                 P.GemCount++;
-            }
+            
         }
     }
 }

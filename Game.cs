@@ -25,8 +25,11 @@ namespace Gem_Hunters__Dmeyer3583
             player2 = new Player("p2");
             board = new Board();
             Console.WriteLine("Player 1");
+            board.Display();
             currentTurn = player1;
+            TotalTurns = 30;
             while (IsGameOver() == false) {
+                
                 char selection = Console.ReadKey().KeyChar;
                 if (selection == 'u' || selection == 'd' || selection == 'l' || selection == 'r')
                 {
@@ -36,13 +39,14 @@ namespace Gem_Hunters__Dmeyer3583
                     Console.Clear();
                     Console.WriteLine("\nInvalid Selection");
                 }
-                
-               
 
+
+                Console.WriteLine(currentTurn.Name +"Gem count:"+ currentTurn.GemCount);
                 board.Display();
                 switchTurn();
-                    
-            
+                IsGameOver();
+                
+
             }
            
             
